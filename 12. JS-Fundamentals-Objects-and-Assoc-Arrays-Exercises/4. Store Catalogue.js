@@ -18,14 +18,13 @@ function storeCatalogue(input) {
         a[0].toLowerCase().localeCompare(b[0].toLowerCase());
     }
 
-    let sortedCatalog = [...catalog].sort(sorting);
-    console.log(sortedCatalog);
+    let sortedCatalog = [...catalog].sort();
 
     for (let [key,value] of sortedCatalog) {
-        //console.log(key);
-        let sortedProducts = [...value].sort(sorting);
+        console.log(key);
+        let sortedProducts = [...value].sort();
         for (let [product, price] of sortedProducts) {
-            //console.log("  " + product + ": " + price);
+            console.log("  " + product + ": " + price);
         }
     }
 }

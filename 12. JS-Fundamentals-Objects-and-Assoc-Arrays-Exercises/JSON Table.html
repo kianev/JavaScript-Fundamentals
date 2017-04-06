@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Table</title>
+    <style>
+        table,th{
+            border: groove;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid black;
+        }
+        td,th{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+</div>
+<script>
+    function jsonTable(input) {
+
+        let html = "<table>\n";
+        for (let line of input) {
+            html += "\t<tr>\n";
+            let item = JSON.parse(line);
+            for (let key in item) {
+                if (item.hasOwnProperty(key))
+                    html += `\t\t<td>${htmlEscape(item[key])}</td>\n`;
+            }
+            html += "\t</tr>\n";
+        }
+
+        html += "</table>";
+        return html;
+
+        function htmlEscape(text) {
+            text = new String(text);
+            let map = { '"': '&quot;', '&': '&amp;',
+                "'": '&#39;', '<': '&lt;', '>': '&gt;' };
+            return text.replace(/[\"&'<>]/g, ch => map[ch]);
+        }
+    }
+    window.onload = function(){
+        let container = document.getElementById('wrapper');
+        container.innerHTML =
+            jsonTable(["{\"name\":\"Pesho\",\"position\":\"Promenliva\",\"salary\":100000}","{\"name\":\"Teo\",\"position\":\"Lecturer\",\"salary\":1000}","{\"name\":\"Georgi\",\"position\":\"Lecturer\",\"salary\":1000}"]);
+    };
+</script>
+</body>
+</html>

@@ -8,4 +8,5 @@ function alphabeticalSorting(a,b) {
     a[0].localeCompare(b[0]);
 }
 let sortedProducts = [...procucts].sort();
+console.log(procucts);
 console.log(sortedProducts);

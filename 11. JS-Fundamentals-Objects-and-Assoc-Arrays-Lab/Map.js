@@ -1,7 +1,7 @@
 let phonebook = { };
 phonebook["Nakov"] = +359888888888;
-phonebook["Akov"] = +359999999999;
-phonebook["Naakov"] = +3597777777;
+phonebook["Ivan"] = +359999999999;
+phonebook["Gosho"] = +3597777777;
 
 
 /*for (let name of Object.keys(phonebook)) {
